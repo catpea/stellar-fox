@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import {constants} from 'fs/promises';
+import {constants} from 'fs';
 import path from 'path';
 export {analysis, log, exists};
 
