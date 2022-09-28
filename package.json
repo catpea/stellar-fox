@@ -1,0 +1,27 @@
+{
+  "name": "stellar-fox",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Static Virtual Hosting",
+  "main": "index.js",
+  "scripts": {
+    "save": "git add .; git commit -m 'New Release'; git push; npm version patch; npm publish; git push;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catpea/stellar-fox.git"
+  },
+  "keywords": [
+    "static",
+    "vhost"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/catpea/stellar-fox/issues"
+  },
+  "homepage": "https://github.com/catpea/stellar-fox#readme",
+  "dependencies": {
+    "koa": "^2.13.4"
+  }
+}
