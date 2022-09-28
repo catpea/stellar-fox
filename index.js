@@ -1,7 +1,7 @@
 import Koa from 'koa';
 import {analysis, log, exists} from './api.js';
 import path from 'path';
-import { createReadStream } from 'node:fs';
+import { createReadStream } from 'fs';
 
 export default async function main(config){
   const app = new Koa();
