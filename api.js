@@ -27,11 +27,17 @@ async function analysis(root, file){
     return response;
   }
 
+  const trailingSlash = file.endsWith("/");
+  const missingSlash = (target.isDirectory()&&!trailingSlash);
+  if(missingSlash){
+    response.redirect = file + '/';
+  }
+
   // Demand index.html for directories.
   if(target.isDirectory()) response.location = path.join(response.location, 'index.html');
   const presentable = await exists(response.location);
   if(!presentable){
-    response.presentable = 'No index file in directory';
+    response.message = 'No index file in directory';
     response.error = 403;
     return response;
   }

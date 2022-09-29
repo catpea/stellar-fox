@@ -5,6 +5,8 @@
   "description": "Static Virtual Hosting",
   "main": "index.js",
   "scripts": {
+    "debug": "PORT=8888 DEBUG=1 node_modules/.bin/mocha",
+    "test": "PORT=8888 node_modules/.bin/mocha",
     "save": "git add .; git commit -m 'New Release'; git push; npm version patch; npm publish; git push;"
   },
   "repository": {
@@ -23,5 +25,9 @@
   "homepage": "https://github.com/catpea/stellar-fox#readme",
   "dependencies": {
     "koa": "^2.13.4"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0",
+    "supertest": "^6.2.4"
   }
 }

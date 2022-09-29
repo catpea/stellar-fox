@@ -14,6 +14,7 @@ async function virtualServer(ctx) {
   const host = ctx.hosts[ctx.hostname]||ctx.hosts.default;
   const request = await analysis(host.root, ctx.path); log(request);
   if(request.error) ctx.throw(request.error);
+  if(request.redirect) ctx.redirect(request.redirect);
   ctx.type = path.extname(request.location);
   ctx.body = createReadStream(request.location);
 }
