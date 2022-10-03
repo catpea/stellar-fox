@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/catpea/stellar-fox#readme",
   "dependencies": {
-    "koa": "^2.13.4"
+    "koa": "^2.13.4",
+    "koa-morgan": "^1.0.1"
   },
   "devDependencies": {
     "mocha": "^10.0.0",

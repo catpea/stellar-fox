@@ -1,15 +1,19 @@
 import Koa from 'koa';
 import {analysis, log, exists} from './api.js';
 import path from 'path';
+import morgan from 'koa-morgan';
 import { createReadStream } from 'fs';
+const logger = morgan('combined');
 
 export default async function main(conf){
-  const app = new Koa();
+  const app = new Koa(conf.koa);
   app.context.conf = conf;
   app.context.hosts = Object.assign(...conf.virtual.filter(entry=>entry.default).map(entry=>({default: entry})), ...conf.virtual.map(entry=>({[entry.name]: entry})) );
+  app.use(morgan('combined'))
   app.use(virtualServer);
   return app;
 }
+
 
 async function virtualServer(ctx) {
 
