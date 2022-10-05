@@ -10,6 +10,13 @@ async function analysis(root, file){
     location: path.join(path.resolve(root), path.resolve(file)),
   };
 
+  // resolve the path (including "../") and check is frags still begin with a dot.
+  if (path.resolve(file).split(path.sep).some(frag => frag.startsWith('.'))) {
+    response.message = 'Hidden files are not accessible.';
+    response.error = 401;
+    return response;
+  }
+
   log('Existence of requested location');
   const readable = await exists(response.location);
   if(!readable){
